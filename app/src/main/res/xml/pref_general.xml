@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/pref_default_screen_names"
+        android:entryValues="@array/pref_default_screen_values"
+        android:key="@string/pref_default_screen_key"
+        android:negativeButtonText="asd"
+        android:positiveButtonText="trete"
+        android:title="@string/pref_default_screen_title" />
+
+</PreferenceScreen>
