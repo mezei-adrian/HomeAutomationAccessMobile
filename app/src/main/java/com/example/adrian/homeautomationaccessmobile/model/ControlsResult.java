@@ -10,7 +10,7 @@ public class ControlsResult {
 
     @SerializedName("controlItems")
     @Expose
-    private List<ControlItem> controlItems = new ArrayList<ControlItem>();
+    private List<ControlItem> controlItems = new ArrayList<>();
 
     public List<ControlItem> getControlItems() {
         return controlItems;

@@ -9,7 +9,6 @@ import com.example.adrian.homeautomationaccessmobile.R;
 import com.example.adrian.homeautomationaccessmobile.model.ControlItem;
 import com.example.adrian.homeautomationaccessmobile.ui.control.item.ControlItemHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ControlRecyclerViewAdapter extends RecyclerView.Adapter<ControlItemHolder> {

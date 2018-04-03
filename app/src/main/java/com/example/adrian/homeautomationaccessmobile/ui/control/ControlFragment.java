@@ -46,7 +46,7 @@ public class ControlFragment extends Fragment implements ControlScreen{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        controlType = getArguments().getString("controlType");
+        controlType = getArguments().getString("controlType" );
     }
 
     @Override
