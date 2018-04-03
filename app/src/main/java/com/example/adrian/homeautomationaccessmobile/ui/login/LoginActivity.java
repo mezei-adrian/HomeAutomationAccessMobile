@@ -3,17 +3,15 @@ package com.example.adrian.homeautomationaccessmobile.ui.login;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.ListPreference;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
@@ -22,10 +20,8 @@ import android.widget.EditText;
 
 import com.example.adrian.homeautomationaccessmobile.HomeAutomationAccessMobile;
 import com.example.adrian.homeautomationaccessmobile.R;
+import com.example.adrian.homeautomationaccessmobile.ui.control.ControlFragment;
 import com.example.adrian.homeautomationaccessmobile.ui.home.HomeActivity;
-import com.example.adrian.homeautomationaccessmobile.ui.home.ScreenType;
-
-import java.util.List;
 
 import javax.inject.Inject;
 

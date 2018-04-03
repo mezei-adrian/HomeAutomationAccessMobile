@@ -4,75 +4,51 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.adrian.homeautomationaccessmobile.R;
-import com.example.adrian.homeautomationaccessmobile.ui.control.ControlFragment.OnListFragmentInteractionListener;
-import com.example.adrian.homeautomationaccessmobile.ui.control.item.ControlItem;
+import com.example.adrian.homeautomationaccessmobile.model.ControlItem;
+import com.example.adrian.homeautomationaccessmobile.ui.control.item.ControlItemHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link ControlItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
-public class ControlRecyclerViewAdapter extends RecyclerView.Adapter<ControlRecyclerViewAdapter.ViewHolder> {
+public class ControlRecyclerViewAdapter extends RecyclerView.Adapter<ControlItemHolder> {
 
-    private final List<ControlItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private List<ControlItem> controlItems;
 
-    public ControlRecyclerViewAdapter(List<ControlItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+    public ControlRecyclerViewAdapter(List<ControlItem> controlItems) {
+        this.controlItems = controlItems;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ControlItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_control, parent, false);
-        return new ViewHolder(view);
+        return new ControlItemHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+    public void onBindViewHolder(final ControlItemHolder holder, int position) {
+        holder.mItem = controlItems.get(position);
+        holder.mIdView.setText(controlItems.get(position).getId());
+        holder.mContentView.setText(controlItems.get(position).getContent());
+        holder.controlButton.setText(controlItems.get(position).getButtonText());
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.controlButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
+                // TODO implement button click
             }
         });
     }
 
+    public void addControlItems(List<ControlItem> items){
+        controlItems.addAll(items);
+    }
+
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return controlItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public ControlItem mItem;
-
-        public ViewHolder(View view) {
-            super(view);
-            mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
-    }
 }

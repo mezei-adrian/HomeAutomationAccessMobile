@@ -22,8 +22,6 @@ public class LoginInteractor extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        // TODO: attempt authentication against a network service.
-
         try {
             // Simulate network access.
             Thread.sleep(500);
@@ -39,7 +37,6 @@ public class LoginInteractor extends AsyncTask<Void, Void, Boolean> {
             }
         }
 
-        // TODO: register the new account here.
         return false;
     }
 

@@ -1,23 +1,21 @@
 package com.example.adrian.homeautomationaccessmobile.interactor.control;
 
-import com.example.adrian.homeautomationaccessmobile.ui.control.item.ControlItem;
+import com.example.adrian.homeautomationaccessmobile.model.ControlItem;
 
 import java.util.List;
 
 
 public class GetControlsEvent {
     private int code;
-    private List<ControlItem> artists;
+    private List<ControlItem> controls;
     private Throwable throwable;
-
-    //<editor-fold desc="Constructors|Getters|Setters">
 
     public GetControlsEvent() {
     }
 
-    public GetControlsEvent(int code, List<ControlItem> artists, Throwable throwable) {
+    public GetControlsEvent(int code, List<ControlItem> controls, Throwable throwable) {
         this.code = code;
-        this.artists = artists;
+        this.controls = controls;
         this.throwable = throwable;
     }
 
@@ -29,12 +27,12 @@ public class GetControlsEvent {
         this.code = code;
     }
 
-    public List<ControlItem> getArtists() {
-        return artists;
+    public List<ControlItem> getControls() {
+        return controls;
     }
 
-    public void setArtists(List<ControlItem> artists) {
-        this.artists = artists;
+    public void setControls(List<ControlItem> controls) {
+        this.controls = controls;
     }
 
     public Throwable getThrowable() {
