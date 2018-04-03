@@ -21,6 +21,7 @@ public class LoginPresenter extends Presenter<LoginScreen> implements LoginRespo
         return true;
     }
 
+    
     public boolean isPasswordValid(String password) {
         //TODO: Replace this with validation logic
         return true;
