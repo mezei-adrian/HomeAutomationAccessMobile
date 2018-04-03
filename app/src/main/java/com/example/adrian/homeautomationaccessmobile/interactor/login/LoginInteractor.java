@@ -14,7 +14,7 @@ public class LoginInteractor extends AsyncTask<Void, Void, Boolean> {
             "foo@example.com:hello", "bar@example.com:world", "a:a"
     };
 
-    public void setCreadentials(String email, String password, LoginResponse loginResponse) {
+    public void setCredentials(String email, String password, LoginResponse loginResponse) {
         this.email = email;
         this.password = password;
         this.loginResponse = loginResponse;

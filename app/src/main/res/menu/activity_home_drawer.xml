@@ -7,33 +7,40 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="@string/screen_home_title"
+            android:contentDescription="@string/screen_home_code" />
         <item
             android:id="@+id/nav_gates"
             android:icon="@drawable/ic_build_black_24dp"
-            android:title="Gates" />
+            android:title="@string/screen_gates_title"
+            android:contentDescription="@string/screen_gates_code" />
         <item
             android:id="@+id/nav_cameras"
             android:icon="@drawable/ic_videocam_black_24dp"
-            android:title="Cameras" />
+            android:title="@string/screen_cameras_title"
+            android:contentDescription="@string/screen_cameras_code" />
         <item
             android:id="@+id/nav_wakeOnLans"
             android:icon="@drawable/ic_alarm_black_24dp"
-            android:title="Wake-On-Lans" />
+            android:title="@string/screen_wols_title"
+            android:contentDescription="@string/screen_wols_code" />
     </group>
 
     <group android:checkableBehavior="single"  android:id="@+id/middle">
         <item
             android:id="@+id/nav_favourites"
             android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="Favourites" />
+            android:title="@string/screen_favourites_title"
+            android:contentDescription="@string/screen_favourites_code" />
     </group>
 
     <group android:checkableBehavior="single"  android:id="@+id/bottom">
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
-            android:title="Logout" />
+            android:title="@string/screen_logout_title"
+
+            android:contentDescription="@string/screen_logout_code"/>
     </group>
 
 </menu>

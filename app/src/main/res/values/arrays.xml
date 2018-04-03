@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="pref_default_screen_values">
-        <item>HOME</item>
-        <item>GATES</item>
-        <item>CAMERAS</item>
-        <item>WOLS</item>
-        <item>FAVOURITES</item>
+    <string-array name="pref_default_screen_code">
+        <item>@string/screen_home_code</item>
+        <item>@string/screen_gates_code</item>
+        <item>@string/screen_cameras_code</item>
+        <item>@string/screen_wols_code</item>
+        <item>@string/screen_favourites_code</item>
     </string-array>
-    <string-array name="pref_default_screen_names">
-        <item>Home</item>
-        <item>Gates</item>
-        <item>Cameras</item>
-        <item>Wake-On-Lans</item>
-        <item>Favourites</item>
+    <string-array name="pref_default_screen_title">
+        <item>@string/screen_home_title</item>
+        <item>@string/screen_gates_title</item>
+        <item>@string/screen_cameras_title</item>
+        <item>@string/screen_wols_title</item>
+        <item>@string/screen_favourites_title</item>
     </string-array>
 </resources>
