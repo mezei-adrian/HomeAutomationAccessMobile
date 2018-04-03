@@ -29,7 +29,7 @@ public class LoginPresenter extends Presenter<LoginScreen> implements LoginRespo
     public void login(String email, String password){
         LoginInteractor loginInteractorInstance = loginInteractor.get();
         if (loginInteractorInstance != null) {
-            loginInteractorInstance.setCreadentials(email, password, this);
+            loginInteractorInstance.setCredentials(email, password, this);
             loginInteractorInstance.execute();
         }
     }

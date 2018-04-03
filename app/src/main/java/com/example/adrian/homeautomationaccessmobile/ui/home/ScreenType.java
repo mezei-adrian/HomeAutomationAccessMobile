@@ -7,7 +7,6 @@ public enum ScreenType {
         try {
             return valueOf(screenTypeString);
         } catch (Exception ex) {
-            // For error cases
             return HOME;
         }
     }

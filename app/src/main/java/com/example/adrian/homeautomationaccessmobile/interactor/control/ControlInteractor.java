@@ -33,7 +33,7 @@ public class ControlInteractor {
             event.setCode(response.code());
             event.setControls(response.body().getControlItems());
             EventBus.getDefault().post(event);
-            Log.i("RESPOSNE", response.body().getControlItems().toString());
+            Log.i("RESPONSE", response.body().getControlItems().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

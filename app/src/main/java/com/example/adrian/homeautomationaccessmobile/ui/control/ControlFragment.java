@@ -63,11 +63,6 @@ public class ControlFragment extends Fragment implements ControlScreen{
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    @Override
     public void showControls(List<ControlItem> controlItems) {
         recyclerView.setAdapter(new ControlRecyclerViewAdapter(controlItems));
     }

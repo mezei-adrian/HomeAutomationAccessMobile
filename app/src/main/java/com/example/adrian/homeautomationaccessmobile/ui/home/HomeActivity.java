@@ -53,8 +53,8 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String screenTypeString = prefs.getString(getString(R.string.pref_default_screen_key), getString(R.string.pref_default_screen_default));
-        loadProperFragment(screenTypeString);
+        ScreenType screenType = ScreenType.toScreenType(prefs.getString(getString(R.string.pref_default_screen_key), getString(R.string.pref_default_screen_default)));
+        loadProperFragment(screenType);
     }
 
     @Override
@@ -83,36 +83,52 @@ public class HomeActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadProperFragment(String fragmentName){
-        if(fragmentName.equals("HOME")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.home_content, new HomeFragment()).commit();
-        }else if(fragmentName.equals("FAVOURITES")) {
-            // TODO replace with favourite
-            getSupportFragmentManager().beginTransaction().replace(R.id.home_content, new HomeFragment()).commit();
-        }else if(fragmentName.equals("GATES") || fragmentName.equals("CAMERAS") || fragmentName.equals("WOLS")){
-            Bundle bundle = new Bundle();
-            bundle.putString("controlType", fragmentName);
+    private void loadProperFragment(ScreenType screenType){
+        switch (screenType){
+            case HOME:
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_content, new HomeFragment()).commit();
+                break;
 
-            Fragment fragment = new ControlFragment();
-            fragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.home_content, fragment).commit();
+            case FAVOURITES:
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_content, new HomeFragment()).commit();
+                // TODO replace with favourite
+                break;
+
+            default:
+                Bundle bundle = new Bundle();
+                bundle.putString("controlType", screenType.toString());
+
+                Fragment fragment = new ControlFragment();
+                fragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_content, fragment).commit();
+                break;
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String screenTypeString = prefs.getString(getString(R.string.pref_default_screen_key), getString(R.string.pref_default_screen_default));
 
-        if(item.getItemId() == R.id.nav_home) loadProperFragment("HOME");
-        else if(item.getItemId() == R.id.nav_favourites) loadProperFragment("FAVOURITES");
-        else if(item.getItemId() == R.id.nav_logout){
-            Intent login = new Intent(getBaseContext(), LoginActivity.class);
-            startActivity(login);
+        switch(item.getItemId()){
+            case R.id.nav_logout:
+                Intent login = new Intent(getBaseContext(), LoginActivity.class);
+                startActivity(login);
+                break;
+            case R.id.nav_home:
+                loadProperFragment(ScreenType.HOME);
+                break;
+            case R.id.nav_gates:
+                loadProperFragment(ScreenType.GATES);
+                break;
+            case R.id.nav_cameras:
+                loadProperFragment(ScreenType.CAMERAS);
+                break;
+            case R.id.nav_wakeOnLans:
+                loadProperFragment(ScreenType.WOLS);
+                break;
+            case R.id.nav_favourites:
+                loadProperFragment(ScreenType.FAVOURITES);
+                break;
         }
-        else if(item.getItemId() == R.id.nav_gates ) loadProperFragment("GATES");
-        else if(item.getItemId() == R.id.nav_cameras ) loadProperFragment("CAMERAS");
-        else if(item.getItemId() == R.id.nav_wakeOnLans) loadProperFragment("WOLS");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
