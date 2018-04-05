@@ -28,7 +28,6 @@ public class ControlFragment extends Fragment implements ControlScreen{
     ControlPresenter controlPresenter;
 
     public ControlFragment() {
-        
     }
 
     public static ControlFragment newInstance(int columnCount) {
