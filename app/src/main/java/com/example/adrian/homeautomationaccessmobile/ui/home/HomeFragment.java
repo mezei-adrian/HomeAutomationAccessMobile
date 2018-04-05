@@ -29,6 +29,8 @@ public class HomeFragment extends Fragment implements HomeScreen{
 
         HomeAutomationAccessMobile.injector.inject(this);
         homePresenter.attachScreen(this);
+
+        getActivity().setTitle(R.string.screen_home_title);
     }
 
     @Override

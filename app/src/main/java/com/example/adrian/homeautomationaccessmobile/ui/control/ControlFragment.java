@@ -47,6 +47,17 @@ public class ControlFragment extends Fragment implements ControlScreen{
         super.onCreate(savedInstanceState);
 
         controlType = getArguments().getString("controlType" );
+
+        switch(controlType){
+            case "GATES": getActivity().setTitle(R.string.screen_gates_title);
+                break;
+
+            case "CAMERAS": getActivity().setTitle(R.string.screen_cameras_title);
+                break;
+
+            case "WOLS": getActivity().setTitle(R.string.screen_wols_title);
+                break;
+        }
     }
 
     @Override
