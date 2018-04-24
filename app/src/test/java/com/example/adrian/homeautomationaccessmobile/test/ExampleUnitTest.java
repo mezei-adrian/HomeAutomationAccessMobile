@@ -1,4 +1,4 @@
-package com.example.adrian.homeautomationaccessmobile;
+package com.example.adrian.homeautomationaccessmobile.test;
 
 import org.junit.Test;
 
@@ -12,6 +12,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        assertEquals(2, 1 + 1);
     }
+
+
 }

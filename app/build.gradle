@@ -31,16 +31,35 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.0'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //Robolectric
+    testImplementation('org.robolectric:shadows-support-v4:3.0-rc3') {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+
 
     // Dagger 2 and Compiler
     implementation 'com.google.dagger:dagger:2.6'
     annotationProcessor "com.google.dagger:dagger-compiler:2.6"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:2.6"
+    testImplementation 'com.google.dagger:dagger-compiler:2.6'
+    testImplementation 'com.google.dagger:dagger:2.6'
+    testImplementation 'javax.annotation:jsr250-api:1.0'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
+    // Mockito
+    repositories { jcenter() }
+    dependencies { testImplementation 'org.mockito:mockito-core:2.7.22' }
+
+    // Espresso
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.1'
+
+    // Eventbus
     implementation 'org.greenrobot:eventbus:3.0.0'
 }

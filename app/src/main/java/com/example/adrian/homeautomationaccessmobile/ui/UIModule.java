@@ -17,6 +17,7 @@ import dagger.Provides;
 
 @Module
 public class UIModule {
+
     private Context context;
 
     public UIModule(Context context) {
