@@ -18,6 +18,7 @@ import android.widget.EditText;
 import com.example.adrian.homeautomationaccessmobile.HomeAutomationAccessMobile;
 import com.example.adrian.homeautomationaccessmobile.R;
 import com.example.adrian.homeautomationaccessmobile.ui.home.HomeActivity;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import javax.inject.Inject;
 
@@ -25,6 +26,8 @@ import javax.inject.Inject;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoginScreen {
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Inject
     LoginPresenter loginPresenter;
@@ -57,6 +60,10 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
+        // Initialize firebase
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     /**
@@ -144,6 +151,13 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
     @Override
     public void loginSuccess() {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "login");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "login");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "login");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle);
+
         Intent intent = new Intent(getBaseContext(), HomeActivity.class);
         startActivity(intent);
     }

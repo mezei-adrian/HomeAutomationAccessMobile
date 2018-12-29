@@ -24,6 +24,9 @@ public class LoginPresenter extends Presenter<LoginScreen> implements LoginRespo
     
     public boolean isPasswordValid(String password) {
         //TODO: Replace this with validation logic
+        if(password.equals("b")){
+            throw new RuntimeException("This is a crash");
+        }
         return true;
     }
 

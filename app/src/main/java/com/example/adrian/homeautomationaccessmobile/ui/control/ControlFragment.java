@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.example.adrian.homeautomationaccessmobile.HomeAutomationAccessMobile;
 import com.example.adrian.homeautomationaccessmobile.R;
 import com.example.adrian.homeautomationaccessmobile.model.ControlItem;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +61,16 @@ public class ControlFragment extends Fragment implements ControlScreen{
             case "WOLS": getActivity().setTitle(R.string.screen_wols_title);
                 break;
         }
+
+        HomeAutomationAccessMobile application = (HomeAutomationAccessMobile) getActivity().getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        Log.i("GoogleAnalytics", "Control fragment onCreate()");
+        mTracker.setScreenName("ControlFragment");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Share")
+                .build());
     }
 
     @Override
